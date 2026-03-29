@@ -42,6 +42,68 @@
 			"typeName": "pointer"
 		},
 		{
+			"x": 810.6868030047818,
+			"y": 4760.683250877313,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:UQFPEHZpfB0V2WO53hTcJ",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"path": "AAAAAAAAAAAAAAA/AEAAwAAAAEAAwAAAAEQAwAAAAAAAwAAAAEAAxAAAAEAAxgAAAEAAxAAAAAAAxAAAAEQAxAAAAAAAwAAAAEAAxAAAAAAAxAAAAAAAwAAAAAAAxAAAAAAAwAAAAAAAQAAAAAAASAAAAAAARAAAAEAASAAAAAAARgAAAEAASAAAAEAARgAAAEQARAAAAEAARgAAAEAAQAAAAEAAQAAAAEAAQAAAAEAAQAAAAEAAAAAAAEYAxAAAAAAAwAAAAAAAxgAAAEAAxgAAAEAAwAAAAAAAyAAAAEAAwAAAAAAAxAAAAEQAxgAAAAAAwAAAAAAAwAAAAAAAxAAAAAAAwAAAAAAAwAAAAAAAwAAAAAAAxAAAAAAAwAAAAMAAwAAAAMAAQAAAAMAARAAAAAAARgAAAAAARAAAAAAARgAAAAAASAAAAAAARAAAAAAARgAAAAAARgAAAEAARAAAAAAARAAAAEQAQAAAAEAAQAAAAAAARAAAAEAAQAAAAEAAQAAAAEQAQAAAAEAAAAAAAEAAAAAA"
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1,
+				"scaleX": 1,
+				"scaleY": 1
+			},
+			"parentId": "page:page",
+			"index": "aEigKMYV",
+			"typeName": "shape"
+		},
+		{
+			"x": 794.6868030047818,
+			"y": 4768.683250877313,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:t3NYjMWix6QskxP5fN6kJ",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"path": "AAAAAAAAAAAAAAA/AMQAAAAAAMAAAAAAAMAAAAAAAMAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAARAAAAAAAQAAAAEAAQAAAAEAAAAAAAEQAAAAAAEYAAAAAAEAAAAAAAEAAAAAAAEQAwAAAAEQAwAAAAAAAwAAAAAAAxAAAAAAAwAAAAAAAwAAAAAAAwAAA"
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1,
+				"scaleX": 1,
+				"scaleY": 1
+			},
+			"parentId": "page:page",
+			"index": "aDFRlOzG",
+			"typeName": "shape"
+		},
+		{
 			"x": -5.7353864827373116,
 			"y": 1924.1851013409373,
 			"rotation": 0,
@@ -178,12 +240,43 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 392.3480313077705,
-			"y": -3486.6297476790573,
-			"z": 0.5,
+			"x": 1413.9970368458871,
+			"y": 334.3000047490255,
+			"z": 0.14372333105199694,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
+		},
+		{
+			"x": 734.6868030047818,
+			"y": 4756.683250877313,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:iAQWIV-QWguS3KTScE4x8",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"path": "AAAAAAAAAAAAAAA/AEQAAAAAAEYAAAAAAEQAAAAAAEAAAAAAAEgARAAAAEAAQAAAAEAAQAAAAAAARAAAAAAAQAAAAAAARAAAAAAARgAAAAAAQAAAAAAAQAAAAAAARAAAAMAAQAAAAMAAQAAAAMAAAAAAAMAAAAAAAMAAAAAAAMQAAAAAAMAAQAAAAMAAAAAA"
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1,
+				"scaleX": 1,
+				"scaleY": 1
+			},
+			"parentId": "page:page",
+			"index": "aC6XmogV",
+			"typeName": "shape"
 		},
 		{
 			"x": -130.91315991008162,
@@ -496,12 +589,74 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": "shape:iUF5-clN0ixtwBDa8IPJb",
+			"x": 730.6868030047818,
+			"y": 4770.683250877313,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:8jbX9gWVVqdk5dhUxJcyZ",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"path": "AAAAAAAAAAAAAAA/AAAAQAAAAAAARAAAAEYASgAAAAAASAAAAAAASgAAAEAASgAAAEAASQAAAAAASQAAAAAASAAAAEAASAAAAAAAQAAAAAAAQAAAAAAAxAAAAAAAyQAA"
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1,
+				"scaleX": 1,
+				"scaleY": 1
+			},
+			"parentId": "page:page",
+			"index": "aAEKOqOV",
+			"typeName": "shape"
+		},
+		{
+			"x": 744.6868030047818,
+			"y": 4802.683250877313,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:k00eYlbsZdWuzMgTL4I16",
+			"type": "draw",
+			"props": {
+				"segments": [
+					{
+						"type": "free",
+						"path": "AAAAAAAAAAAAAAA/"
+					}
+				],
+				"color": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"isComplete": true,
+				"isClosed": false,
+				"isPen": false,
+				"scale": 1,
+				"scaleX": 1,
+				"scaleY": 1
+			},
+			"parentId": "page:page",
+			"index": "aBFUWO5l",
+			"typeName": "shape"
+		},
+		{
+			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:iUF5-clN0ixtwBDa8IPJb"
+				"shape:ZxYCZvhSuTLAi9djTfYiC"
 			],
-			"hoveredShapeId": "shape:iUF5-clN0ixtwBDa8IPJb",
+			"hoveredShapeId": "shape:ZxYCZvhSuTLAi9djTfYiC",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -2131,6 +2286,947 @@
 			"typeName": "shape"
 		},
 		{
+			"x": 1679.1654874928686,
+			"y": 3049.057845817382,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:ZxYCZvhSuTLAi9djTfYiC",
+			"type": "geo",
+			"props": {
+				"w": 1080,
+				"h": 1175.8703250403953,
+				"geo": "rectangle",
+				"dash": "draw",
+				"growY": 0,
+				"url": "",
+				"scale": 1,
+				"color": "black",
+				"labelColor": "black",
+				"fill": "none",
+				"size": "m",
+				"font": "draw",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"richText": {
+					"type": "doc",
+					"attrs": {
+						"dir": "auto"
+					},
+					"content": [
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "🧠 select() vs poll() — At a Glance"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "(Why poll() scales better with high file descriptor numbers)"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "Table"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "Featureselect()poll()How it tracks fds"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "Uses a "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "bitmask"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": " (like a giant checkbox list from fd 0 to FD_SETSIZE−1)Uses an "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "array of structs"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": ": one entry per fd you actually care about"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "Memory use"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "❌ Wastes space: allocates for "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "all possible fds up to 1024 (or 65536)"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": " — even if you only monitor fd 999 and 1000✅ Efficient: only stores what you need — e.g., 2 structs for 2 fds"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "Scalability limit"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "❌ Hard ceiling (often 1024) — fails if you try fd = 1025✅ No arbitrary limit — works with fd = 1000000 (if the kernel allows it)"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "Time cost"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "❌ Must scan "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "every bit"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": " from 0 to max_fd — slow when max_fd is huge but sparse✅ Only loops over your "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "actual array length"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": " — fast & predictable"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "Simple mental model"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "🚪 "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "\"You walk down every door in a 1024-room hallway — even if only doors #999 and #1000 have people behind them.\""
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "🚪 "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "\"You knock only on the 2 doors you care about — no hallway walking required.\""
+								}
+							]
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 4
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										},
+										{
+											"type": "code"
+										}
+									],
+									"text": "💡 Key takeaway:"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "select() is "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "bounded and sparse-inefficient"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "."
+								},
+								{
+									"type": "hardBreak",
+									"attrs": {
+										"dir": "auto"
+									},
+									"marks": [
+										{
+											"type": "code"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "poll() is "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										},
+										{
+											"type": "italic"
+										}
+									],
+									"text": "unbounded and sparse-efficient"
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "."
+								},
+								{
+									"type": "hardBreak",
+									"attrs": {
+										"dir": "auto"
+									},
+									"marks": [
+										{
+											"type": "code"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "That’s why poll() wins when handling thousands of connections (e.g., web servers, chat backends)."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "code"
+										}
+									],
+									"text": "Would you like this as:"
+								}
+							]
+						},
+						{
+							"type": "bulletList",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "listItem",
+									"attrs": {
+										"dir": "auto"
+									},
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "A "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														},
+														{
+															"type": "code"
+														}
+													],
+													"text": "printable PDF or Markdown file"
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": ","
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"attrs": {
+										"dir": "auto"
+									},
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "A "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														},
+														{
+															"type": "code"
+														}
+													],
+													"text": "visual diagram (e.g., side-by-side memory layout)"
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": ","
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"attrs": {
+										"dir": "auto"
+									},
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "Or a "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														},
+														{
+															"type": "code"
+														}
+													],
+													"text": "minimal runnable C snippet"
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": " comparing both? "
+												},
+												{
+													"type": "text",
+													"text": "Feature "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "select()"
+												},
+												{
+													"type": "text",
+													"text": " "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "poll()"
+												},
+												{
+													"type": "text",
+													"text": " "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "How it tracks fds"
+												},
+												{
+													"type": "text",
+													"text": " Uses a "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "bitmask"
+												},
+												{
+													"type": "text",
+													"text": " (like a giant checkbox list from fd "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "0"
+												},
+												{
+													"type": "text",
+													"text": " to "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "FD_SETSIZE−1"
+												},
+												{
+													"type": "text",
+													"text": ") Uses an "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "array of structs"
+												},
+												{
+													"type": "text",
+													"text": ": one entry per fd you actually care about "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Memory use"
+												},
+												{
+													"type": "text",
+													"text": " ❌ Wastes space: allocates for "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "all possible fds up to 1024 (or 65536)"
+												},
+												{
+													"type": "text",
+													"text": " — even if you only monitor fd "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "999"
+												},
+												{
+													"type": "text",
+													"text": " and "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "1000"
+												},
+												{
+													"type": "text",
+													"text": " ✅ Efficient: only stores what you need — e.g., 2 structs for 2 fds "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Scalability limit"
+												},
+												{
+													"type": "text",
+													"text": " ❌ Hard ceiling (often "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "1024"
+												},
+												{
+													"type": "text",
+													"text": ") — fails if you try "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "fd = 1025"
+												},
+												{
+													"type": "text",
+													"text": " ✅ No arbitrary limit — works with "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "fd = 1000000"
+												},
+												{
+													"type": "text",
+													"text": " (if the kernel allows it) "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Time cost"
+												},
+												{
+													"type": "text",
+													"text": " ❌ Must scan "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "every bit"
+												},
+												{
+													"type": "text",
+													"text": " from "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "0"
+												},
+												{
+													"type": "text",
+													"text": " to "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "max_fd"
+												},
+												{
+													"type": "text",
+													"text": " — slow when "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "code"
+														}
+													],
+													"text": "max_fd"
+												},
+												{
+													"type": "text",
+													"text": " is huge but sparse ✅ Only loops over your "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "actual array length"
+												},
+												{
+													"type": "text",
+													"text": " — fast & predictable "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Simple mental model"
+												},
+												{
+													"type": "text",
+													"text": " 🚪 "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "\"You walk down every door in a 1024-room hallway — even if only doors #999 and #1000 have people behind them.\""
+												},
+												{
+													"type": "text",
+													"text": " 🚪 "
+												},
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "italic"
+														}
+													],
+													"text": "\"You knock only on the 2 doors you care about — no hallway walking required.\""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "aFCfBOfV",
+			"typeName": "shape"
+		},
+		{
 			"x": -218.92608234599197,
 			"y": 2968.481408220611,
 			"rotation": 0,
@@ -2518,13 +3614,11 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {
-				"tldraw:geo": "rectangle"
-			},
+			"stylesForNextShape": {},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "default",
+				"type": "nwse-resize",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -2534,7 +3628,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 614,
+				"w": 946,
 				"h": 939
 			},
 			"insets": [
@@ -2552,7 +3646,7 @@
 			"isFocused": true,
 			"devicePixelRatio": 1,
 			"isCoarsePointer": false,
-			"isHoveringCanvas": false,
+			"isHoveringCanvas": true,
 			"openMenus": [],
 			"isChangingStyle": false,
 			"isReadonly": false,
