@@ -1,24 +1,24 @@
-NAME = ft_irc_server
+NAME := ircserv
 CXX := c++
 CXXFLAGS := -std=c++98
+INCLUDE := -Iinclude   
 
 OBJ_D := obj
 SRC := $(shell find . -name "*.cpp")
-
 OBJ := $(SRC:%.cpp=$(OBJ_D)/%.o)
 DEP := $(OBJ:%.o=%.d)
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 	@echo "Build completed!"
 
-$(OBJ_D)/%.o : %.cpp
+$(OBJ_D)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(INCLUDE) -MMD -MP -c $< -o $@
 	@echo "Compiled: $<"
 
 clean:
