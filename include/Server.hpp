@@ -3,22 +3,13 @@
 
 #include <vector>
 #include <map>
-#include <poll.h>
-#include <iostream>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <netdb.h>
-#include <cstring>
 #include <string>
-#include <sstream>
-#include <stdlib.h>
-#include "Client.hpp"
-#include "Channel.hpp"
+#include <poll.h>
 
 #define BACKLOG 10
 #define BUFFER_SIZE 512
+
+class Client;
 
 class Server
 {

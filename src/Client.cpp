@@ -1,4 +1,4 @@
-#include "../include/Client.hpp"
+#include "ft_irc.h"
 
 Client::Client() : fd(-1), nickname(""), username(""), isRegistered(false), hasPassedPassword(false) {}
 

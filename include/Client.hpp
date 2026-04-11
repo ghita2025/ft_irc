@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-#include "Channel.hpp"
 
 class Client
 {
@@ -16,8 +15,6 @@ private:
 
     std::string recvBuffer;
     std::string sendBuffer;
-
-    // Channel *channel;
 
 public:
     Client();
