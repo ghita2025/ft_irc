@@ -43,6 +43,8 @@ class Server
         void handleClientWrite(int fd);
         void removeClient(int fd);
         void handleJoin(Client& client, Command& cmd);
+        void handleKick(Client& client, Command& cmd);
+        Client* getClientByNick(const std::string &nick);
 
     // void processCommand(Client &client, std::string cmd);
 };
