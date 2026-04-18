@@ -15,6 +15,8 @@
 #include <iomanip>
 #include <cmath>
 #include <stdint.h>
+#include <sys/socket.h>
+
 
 #define BACKLOG 10
 #define BUFFER_SIZE 512
@@ -44,6 +46,7 @@ class Server
         void removeClient(int fd);
         void handleJoin(Client& client, Command& cmd);
         void handleKick(Client& client, Command& cmd);
+        void handlePrivmsg(Client& client, Command& cmd);
         Client* getClientByNick(const std::string &nick);
 
     // void processCommand(Client &client, std::string cmd);

@@ -2,7 +2,6 @@
 #include "../../include/Command.hpp"
 #include "../../include/Client.hpp"
 #include "../../include/Channel.hpp"
-#include <sys/socket.h>
 
 void    Server::handleJoin(Client& client, Command& cmd)
 {
