@@ -47,6 +47,7 @@ class Server
         void handleJoin(Client& client, Command& cmd);
         void handleKick(Client& client, Command& cmd);
         void handlePrivmsg(Client& client, Command& cmd);
+        void handlePart(Client& client, Command& cmd);
         Client* getClientByNick(const std::string &nick);
 
     // void processCommand(Client &client, std::string cmd);
