@@ -8,6 +8,11 @@ Channel::Channel(std::string channelName)
     this->name = channelName;
 }
 
+std::string Channel::getName() const
+{
+    return (this->name);
+}
+
 void    Channel::addMember(int fd)
 {
     this->members.insert(fd);

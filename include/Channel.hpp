@@ -23,6 +23,7 @@ class Channel
         bool    isInvited(int fd);
         void    removeInvite(int fd);
         void    removeOperator(int fd);
+        std::string getName() const;
         const std::set<int>& getMembers() const;
         int     memberCount();
         

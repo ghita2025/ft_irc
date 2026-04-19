@@ -19,7 +19,7 @@ Client* Server::getClientByNick(const std::string &nick)
 
 void    Server::handleKick(Client& client, Command& cmd)
 {
-    if (cmd.args.size() < 2)
+    if (cmd.args.size() < 1)
         return ;
     std::string channelName = cmd.args[0];
     std::string targetNick = cmd.args[1];

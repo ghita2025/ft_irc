@@ -1,4 +1,5 @@
 #include "ft_irc.h"
+#include "../include/Channel.hpp"
 
 Client::Client() : fd(-1), nickname(""), username(""), isRegistered(false), hasPassedPassword(false) {}
 
@@ -7,6 +8,21 @@ Client::Client(int fd, std::string name) : fd(fd), username(name), isRegistered(
 int &Client::getFd()
 {
     return fd;
+}
+
+void Client::joinChannel(const std::string& name)
+{
+    channels.insert(name);
+}
+
+void Client::leaveChannel(const std::string& name)
+{
+    channels.erase(name);
+}
+
+std::set<std::string> Client::getChannels() const
+{
+    return (channels);
 }
 
 std::string &Client::getUsername()
