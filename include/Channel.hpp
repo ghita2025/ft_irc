@@ -8,6 +8,7 @@ class Channel
 {
     private:
         std::string name;
+        std::string topic;
         std::set<int> members;
         std::set<int> operators;
         std::set<int> invited;
