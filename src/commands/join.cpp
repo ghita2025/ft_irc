@@ -18,6 +18,14 @@ void    Server::handleJoin(Client& client, Command& cmd)
     Channel &channel = channels[channelName];
     if (channel.isInviteOnly() && !channel.isInvited(client.getFd()))
         return ;
+    if (channel.hasKey())
+    {
+        if (cmd.args.size() < 2)
+            return;
+        std::string key = cmd.args[1];
+        if (key != channel.getKey())
+            return;
+    }
     if (channel.hasMember(client.getFd()))
         return ;
     channel.addMember(client.getFd());

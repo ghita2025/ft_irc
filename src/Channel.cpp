@@ -6,6 +6,7 @@ Channel::Channel()
 Channel::Channel(std::string channelName)
 {
     this->name = channelName;
+    this->key = "";
     this->inviteOnly = false;
     this->topicRestricted = false;
 }
@@ -138,4 +139,19 @@ void Channel::setTopic(const std::string& newTopic)
 const std::string& Channel::getTopic() const
 {
     return (this->topic);
+}
+
+bool Channel::hasKey() const
+{
+    return (!this->key.empty());
+}
+
+void Channel::setKey(const std::string& newKey)
+{
+    this->key = newKey;
+}
+
+const std::string& Channel::getKey() const
+{
+    return (this->key);
 }

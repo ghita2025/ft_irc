@@ -9,6 +9,7 @@ class Channel
     private:
         std::string name;
         std::string topic;
+        std::string key;
         bool inviteOnly;
         bool topicRestricted;
         std::set<int> members;
@@ -35,6 +36,9 @@ class Channel
         void setTopicRestricted(bool value);
         void setTopic(const std::string& newTopic);
         const std::string& getTopic() const;
+        bool hasKey() const;
+        void setKey(const std::string& newKey);
+        const std::string& getKey() const;
         
 };
 
