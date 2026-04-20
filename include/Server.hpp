@@ -49,6 +49,7 @@ class Server
         void handlePrivmsg(Client& client, Command& cmd);
         void handlePart(Client& client, Command& cmd);
         void handleQuit(Client& client, Command& cmd);
+        void handleTopic(Client& client, Command& cmd);
         Client* getClientByNick(const std::string &nick);
 
     // void processCommand(Client &client, std::string cmd);

@@ -6,6 +6,7 @@ Channel::Channel()
 Channel::Channel(std::string channelName)
 {
     this->name = channelName;
+    this->topicRestricted = false;
 }
 
 std::string Channel::getName() const
@@ -106,4 +107,24 @@ void    Channel::removeOperator(int fd)
 const std::set<int>& Channel::getMembers() const
 {
     return (this->members);
+}
+
+bool Channel::isTopicRestricted() const
+{
+    return (this->topicRestricted);
+}
+
+void Channel::setTopicRestricted(bool value)
+{
+    this->topicRestricted = value;
+}
+
+void Channel::setTopic(const std::string& newTopic)
+{
+    this->topic = newTopic;
+}
+
+const std::string& Channel::getTopic() const
+{
+    return (this->topic);
 }
