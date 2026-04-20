@@ -6,6 +6,7 @@ Channel::Channel()
 Channel::Channel(std::string channelName)
 {
     this->name = channelName;
+    this->inviteOnly = false;
     this->topicRestricted = false;
 }
 
@@ -78,6 +79,16 @@ int     Channel::memberCount()
         itmem++;
     }
     return (size);
+}
+
+bool    Channel::isInviteOnly() const
+{
+    return (this->inviteOnly);
+}
+
+void    Channel::setInviteOnly(bool value)
+{
+    this->inviteOnly = value;
 }
 
 bool    Channel::isInvited(int fd)

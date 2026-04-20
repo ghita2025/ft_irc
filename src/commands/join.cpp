@@ -16,14 +16,19 @@ void    Server::handleJoin(Client& client, Command& cmd)
         channels[channelName] = newChannel;
     }
     Channel &channel = channels[channelName];
+    if (channel.isInviteOnly() && !channel.isInvited(client.getFd()))
+        return ;
     if (channel.hasMember(client.getFd()))
         return ;
     channel.addMember(client.getFd());
+    channel.removeInvite(client.getFd());
     if (channel.memberCount() == 1)
         channel.addOperator(client.getFd());
+    client.joinChannel(channelName);
     std::string msg = ":" + client.getNickname() + " JOIN " + channelName + "\r\n";
-    std::set<int>::const_iterator it = channel.getMembers().begin();
-    while (it != channel.getMembers().end())
+    std::set<int> members = channel.getMembers();
+    std::set<int>::iterator it = members.begin();
+    while (it != members.end())
     {
         send(*it, msg.c_str(), msg.size(), 0);
         it++;

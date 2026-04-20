@@ -9,6 +9,7 @@ class Channel
     private:
         std::string name;
         std::string topic;
+        bool inviteOnly;
         bool topicRestricted;
         std::set<int> members;
         std::set<int> operators;
@@ -28,6 +29,8 @@ class Channel
         std::string getName() const;
         const std::set<int>& getMembers() const;
         int     memberCount();
+        bool isInviteOnly() const;
+        void setInviteOnly(bool value);
         bool isTopicRestricted() const;
         void setTopicRestricted(bool value);
         void setTopic(const std::string& newTopic);
