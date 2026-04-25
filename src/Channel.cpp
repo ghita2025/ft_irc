@@ -9,6 +9,8 @@ Channel::Channel(std::string channelName)
     this->key = "";
     this->inviteOnly = false;
     this->topicRestricted = false;
+    this->hasPass = false;
+    this->limit = -1;
 }
 
 std::string Channel::getName() const
@@ -154,4 +156,45 @@ void Channel::setKey(const std::string& newKey)
 const std::string& Channel::getKey() const
 {
     return (this->key);
+}
+
+bool    Channel::hasPassword() const
+{
+    return (this->hasPass);
+}
+
+std::string Channel::getPassword() const
+{
+    return (this->password);
+}
+
+bool Channel::isFull() const
+{
+    if (this->limit == -1)
+        return (false);
+    if (members.size() >= (size_t)this->limit)
+        return (true);
+    return (false);
+}
+
+void Channel::setPassword(const std::string& pass)
+{
+    this->password = pass;
+    this->hasPass = true;
+}
+
+void Channel::removePassword()
+{
+    this->password = "";
+    this->hasPass = false;
+}
+
+void Channel::setLimit(int l)
+{
+    this->limit = l;
+}
+
+void Channel::removeLimit()
+{
+    this->limit = -1;
 }

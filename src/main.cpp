@@ -1,4 +1,5 @@
 #include "ft_irc.h"
+#include <iostream>
 
 int main(int ac, char *av[])
 {

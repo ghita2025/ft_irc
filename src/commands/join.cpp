@@ -17,15 +17,28 @@ void    Server::handleJoin(Client& client, Command& cmd)
     }
     Channel &channel = channels[channelName];
     if (channel.isInviteOnly() && !channel.isInvited(client.getFd()))
-        return ;
-    if (channel.hasKey())
     {
-        if (cmd.args.size() < 2)
-            return;
-        std::string key = cmd.args[1];
-        if (key != channel.getKey())
-            return;
+        std::string err = "Invite only\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
+        return ;
     }
+    if (channel.hasPassword())
+    {
+        if (cmd.args.size() < 2 || cmd.args[1] != channel.getPassword())
+        {
+            std::string err = "Wrong password\r\n";
+            send(client.getFd(), err.c_str(), err.size(), 0);
+            return ;
+        }
+    }
+    if (channel.isFull())
+    {
+        std::string err = "Channel is full\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
+        return ;
+    }
+    if (channel.isInviteOnly())
+        std::cout << "Channel is invite only" << std::endl;
     if (channel.hasMember(client.getFd()))
         return ;
     channel.addMember(client.getFd());
@@ -41,5 +54,6 @@ void    Server::handleJoin(Client& client, Command& cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
+    std::cout << "JOIN OK: " << channelName << std::endl;
 }
 
