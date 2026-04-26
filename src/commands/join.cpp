@@ -54,6 +54,7 @@ void    Server::handleJoin(Client& client, Command& cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
+    //debug
     std::cout << "JOIN OK: " << channelName << std::endl;
 }
 

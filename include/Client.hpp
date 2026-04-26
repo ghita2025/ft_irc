@@ -11,8 +11,7 @@ class Client
         int fd;
         std::string nickname;
         std::string username;
-        bool isRegistered;
-        bool hasPassedPassword;
+        
 
         std::string recvBuffer;
         std::string sendBuffer;
@@ -20,16 +19,22 @@ class Client
         std::set<std::string> channels;
 
     public:
+        bool passOk;
+        bool nickSet;
+        bool userSet;
+        bool authenticated;
         Client();
         Client(int fd, std::string name);
         ~Client();
 
         int &getFd();
         std::string &getUsername();
+        void setUsername(const std::string &name);
         std::string &getNickname();
         std::string &getRecvBuffer();
         std::string &getSendBuffer();
-
+        
+        void setNickname(const std::string &nick);
         void joinChannel(const std::string& name);
         void leaveChannel(const std::string& name);
         std::set<std::string> getChannels() const;

@@ -11,6 +11,12 @@ void Server::handleMode(Client& client, Command& cmd)
     if (channels.find(channelName) == channels.end())
         return ;
     Channel &channel = channels[channelName];
+    if (!channel.isOperator(client.getFd()))
+    {
+        std::string err = ":" + client.getNickname() + " 482 " + channelName + " :You're not channel operator\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
+        return ;
+    }
     std::string modes = cmd.args[1];
     bool add = true;
     size_t paramindex = 2;
@@ -73,5 +79,6 @@ void Server::handleMode(Client& client, Command& cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
+    //debug
     std::cout << "MODE applied: " << modes << " on " << channelName << std::endl;
 }

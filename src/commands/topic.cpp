@@ -9,7 +9,7 @@ void Server::handleTopic(Client& client, Command& cmd)
         return ;
     std::string channelName = cmd.args[0];
     std::map<std::string, Channel>::iterator it = channels.find(channelName);
-    if (it != channels.end())
+    if (it == channels.end())
         return ;
     Channel &channel = it->second;
     if (channel.hasMember(client.getFd()))

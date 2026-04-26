@@ -52,6 +52,12 @@ class Server
         void handleTopic(Client& client, Command& cmd);
         void handleInvite(Client& client, Command& cmd);
         void handleMode(Client& client, Command& cmd);
+        void handlePass(Client& client, Command& cmd);
+        void handleNick(Client& client, Command& cmd);
+        void handleUser(Client& client, Command& cmd);
+        bool nicknameExists(const std::string &nick);
+        void tryAuthenticate(Client& client);
+        void executeCommand(Client& client, Command& cmd);
         Client* getClientByNick(const std::string &nick);
 
     // void processCommand(Client &client, std::string cmd);

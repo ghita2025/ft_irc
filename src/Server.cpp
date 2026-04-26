@@ -1,4 +1,5 @@
 #include "ft_irc.h"
+#include "Command.hpp"
 
 Server::Server(int port, std::string password) : port(port), password(password)
 {
@@ -127,8 +128,12 @@ void Server::handleClientRead(int fd)
     std::vector<std::string> commands;
     clients[fd].extractCommands(commands);
     for (size_t i = 0; i < commands.size(); i++)
+    {
         //    processCommand(clients[fd], commands[i]);                 // parse and execute command
+        // Command cmd(commands[i]);
+        // executeCommand(clients[fd], cmd);
         std::cout << "Received command from client " << fd << ": " << commands[i] << std::endl;
+    }
 }
 
 void Server::handleClientWrite(int fd)

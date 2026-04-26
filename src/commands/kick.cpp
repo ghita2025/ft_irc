@@ -19,7 +19,7 @@ Client* Server::getClientByNick(const std::string &nick)
 
 void    Server::handleKick(Client& client, Command& cmd)
 {
-    if (cmd.args.size() < 1)
+    if (cmd.args.size() < 2)
         return ;
     std::string channelName = cmd.args[0];
     std::string targetNick = cmd.args[1];
@@ -27,14 +27,41 @@ void    Server::handleKick(Client& client, Command& cmd)
     {
         Channel &cl = this->channels[channelName];
         if (cl.isOperator(client.getFd()) == false)
+        {
+            std::string err = ":" + client.getNickname() + " 482 " + channelName + " :You're not channel operator\r\n";
+            send(client.getFd(), err.c_str(), err.size(), 0);
             return ;
+        }
         Client *target = getClientByNick(targetNick);
         if (!target)
-            return;
-        if (!cl.hasMember(target->getFd()))
+        {
+            std::string err = "401 No such nick\r\n";
+            send(client.getFd(), err.c_str(), err.size(), 0);
             return ;
+        }
+        if (!cl.hasMember(target->getFd()))
+        {
+            std::string err = "441 They aren't on that channel\r\n";
+            send(client.getFd(), err.c_str(), err.size(), 0);
+            return ;
+        }
+        std::string msg = ":" + client.getNickname() + " KICK " + channelName + " " + targetNick + " :kicked\r\n";
+        std::set<int> members = cl.getMembers();
+        std::set<int>::iterator it = members.begin();
+        while (it != members.end())
+        {
+            send(*it, msg.c_str(), msg.size(), 0);
+            it++;
+        }
         cl.removeMember(target->getFd());
         cl.removeOperator(target->getFd());
+        //debug
         std::cout << "dakchi howa hadak kick" << std::endl;
+    }
+    else
+    {
+        std::string err = "403 No such channel\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
+        return ;
     }
 }

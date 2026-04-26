@@ -18,7 +18,10 @@ void Server::handleQuit(Client& client, Command& cmd)
     {
         std::map<std::string, Channel>::iterator ch = channels.find(*it);
         if (ch == channels.end())
+        {
+            it++;
             continue;
+        }
         Channel &channel = ch->second;
         std::set<int> members = channel.getMembers();
         std::set<int>::iterator m = members.begin();
