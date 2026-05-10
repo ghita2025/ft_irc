@@ -1,7 +1,9 @@
 obj/./src/Server.o: src/Server.cpp include/ft_irc.h include/Client.hpp \
- include/Server.hpp include/Channel.hpp include/Command.hpp
+ include/Server.hpp include/Channel.hpp include/Command.hpp \
+ include/Parser.hpp
 include/ft_irc.h:
 include/Client.hpp:
 include/Server.hpp:
 include/Channel.hpp:
 include/Command.hpp:
+include/Parser.hpp:

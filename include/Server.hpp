@@ -5,6 +5,8 @@
 #include <map>
 #include <string>
 #include <poll.h>
+#include <signal.h>
+#include <errno.h>
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
@@ -36,6 +38,10 @@ class Server
         std::map<int, Client> clients;
         std::map<std::string, Channel> channels;
     public:
+        static bool runningServer; // mine
+        static void signalHandler(int signum);//mine
+        void setupSignals();//mine
+
         Server(int port, std::string password);
         ~Server();
         void initSocket();
@@ -60,7 +66,7 @@ class Server
         void executeCommand(Client& client, Command& cmd);
         Client* getClientByNick(const std::string &nick);
 
-    // void processCommand(Client &client, std::string cmd);
+        void processCommand(Client &client, const std::string &rawString);//mine
 };
 
 #endif

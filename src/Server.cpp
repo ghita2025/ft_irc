@@ -1,5 +1,8 @@
 #include "ft_irc.h"
 #include "Command.hpp"
+#include "Parser.hpp"
+
+bool Server::runningServer = true; //added
 
 Server::Server(int port, std::string password) : port(port), password(password)
 {
@@ -60,13 +63,14 @@ Server::~Server()
 
 void Server::run()
 {
+    setupSignals();//mine
     pollfd pfd;
     pfd.fd = serverFd;
     pfd.events = POLLIN;
     pfd.revents = 0;
     fds.push_back(pfd);
 
-    while (true)
+    while (Server::runningServer)//mine
     {
         if (poll(&fds[0], fds.size(), -1) == -1)
         {
@@ -129,7 +133,7 @@ void Server::handleClientRead(int fd)
     clients[fd].extractCommands(commands);
     for (size_t i = 0; i < commands.size(); i++)
     {
-        //    processCommand(clients[fd], commands[i]);                 // parse and execute command
+        processCommand(clients[fd], commands[i]);                 // parse and execute command
         // Command cmd(commands[i]);
         // executeCommand(clients[fd], cmd);
         std::cout << "Received command from client " << fd << ": " << commands[i] << std::endl;
@@ -173,3 +177,27 @@ void Server::removeClient(int fd)
         }
     }
 }
+
+void Server::processCommand(Client &client, const std::string &rawString)
+{
+    std::string command;
+    std::vector<std::string> args;
+
+    Parser::parseCommand(rawString, command, args);
+
+    Command cmd;
+    cmd.name = command;
+    cmd.args = args;
+
+    if (command == "PASS")
+        handlePass(client, cmd);
+    else if (command == "NICK")
+        handleNick(client, cmd);
+    else if (command == "USER")
+        handleUser(client, cmd);
+    else if (command == "JOIN")
+        handleJoin(client, cmd);
+    else if (command == "PRIVMSG")
+        handlePrivmsg(client, cmd);
+}
+
