@@ -4,7 +4,7 @@ CXXFLAGS := -std=c++98
 INCLUDE := -Iinclude   
 
 OBJ_D := obj
-SRC := $(shell find . -name "*.cpp")
+SRC := $(shell find src -name "*.cpp")
 OBJ := $(SRC:%.cpp=$(OBJ_D)/%.o)
 DEP := $(OBJ:%.o=%.d)
 

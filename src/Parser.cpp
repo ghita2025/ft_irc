@@ -2,8 +2,8 @@
 #include <cctype>
 
 void Parser::parseCommand(const std::string &rawString,
-                         std::string &command,
-                         std::vector<std::string> &args)
+    std::string &command,
+    std::vector<std::string> &args)
 {
     command.clear();
     args.clear();
