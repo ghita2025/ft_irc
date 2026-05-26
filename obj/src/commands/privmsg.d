@@ -1,4 +1,4 @@
-obj/./src/commands/privmsg.o: src/commands/privmsg.cpp \
+obj/src/commands/privmsg.o: src/commands/privmsg.cpp \
  src/commands/../../include/Server.hpp \
  src/commands/../../include/Command.hpp \
  src/commands/../../include/Client.hpp \

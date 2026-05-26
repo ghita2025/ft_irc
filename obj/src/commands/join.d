@@ -1,4 +1,4 @@
-obj/./src/commands/join.o: src/commands/join.cpp \
+obj/src/commands/join.o: src/commands/join.cpp \
  src/commands/../../include/Server.hpp \
  src/commands/../../include/Command.hpp \
  src/commands/../../include/Client.hpp \

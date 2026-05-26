@@ -1,4 +1,4 @@
-obj/./src/commands/invite.o: src/commands/invite.cpp \
+obj/src/commands/invite.o: src/commands/invite.cpp \
  src/commands/../../include/Server.hpp \
  src/commands/../../include/Command.hpp \
  src/commands/../../include/Client.hpp \

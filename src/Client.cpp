@@ -8,7 +8,7 @@ Client::Client() : fd(-1), nickname(""), username("")
     userSet = false;
 }
 
-Client::Client(int fd, std::string name) : fd(fd), username(name) {}
+Client::Client(int fd, std::string name) : fd(fd), username(name), passOk(false), nickSet(false), userSet(false), authenticated(false) {}
 
 int &Client::getFd()
 {

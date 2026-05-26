@@ -7,8 +7,9 @@ void    Server::handlePrivmsg(Client& client, Command& cmd)
 {
     if (cmd.args.size() < 2)
         return ;
-    std::string target = cmd.args[0];
-    std::string message = cmd.args[1];
+        std::string target = cmd.args[0];
+        std::string message = cmd.args[1];
+        std::cout << target << message << std::endl;
     std::string fullMsg = ":" + client.getNickname() + " PRIVMSG " + target + " :" + message + "\r\n";
     
     if (target[0] == '#')

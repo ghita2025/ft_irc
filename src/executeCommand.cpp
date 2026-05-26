@@ -5,6 +5,7 @@
 
 void Server::executeCommand(Client& client, Command& cmd)
 {
+    // std::cout << "name: " << cmd.name << std::endl;
     if (!client.passOk && cmd.name != "PASS" && cmd.name != "NICK" && cmd.name != "USER")
     {
         std::string err = "451 :You have not registered\r\n";

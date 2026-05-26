@@ -1,4 +1,4 @@
-obj/./src/commands/topic.o: src/commands/topic.cpp \
+obj/src/commands/topic.o: src/commands/topic.cpp \
  src/commands/../../include/Server.hpp \
  src/commands/../../include/Command.hpp \
  src/commands/../../include/Client.hpp \

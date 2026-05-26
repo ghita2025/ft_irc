@@ -1,4 +1,4 @@
-obj/./src/commands/quit.o: src/commands/quit.cpp \
+obj/src/commands/quit.o: src/commands/quit.cpp \
  src/commands/../../include/Server.hpp \
  src/commands/../../include/Command.hpp \
  src/commands/../../include/Client.hpp \
