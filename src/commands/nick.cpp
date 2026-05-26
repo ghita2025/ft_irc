@@ -15,21 +15,27 @@ bool Server::nicknameExists(const std::string &nick)
     return (false);
 }
 
-void Server::handleNick(Client& client, Command& cmd)
+void Server::handleNick(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 1)
     {
-        std::string err = "461 NICK :Not enough parameters\r\n";
+        std::string err = "NICK :Not enough parameters\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
+        return;
+    }
+    if (!client.passOk)
+    {
+        send(client.getFd(), "NICK :You have not registered (send PASS first)\r\n", 53, 0);
         return ;
     }
     std::string nick = cmd.args[0];
     if (nicknameExists(nick))
     {
-        std::string err = "433 :Nickname already in use\r\n";
+        std::string err = "NICK :Nickname already in use\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
-        return ;
+        return;
     }
     client.setNickname(nick);
     client.nickSet = true;
+    tryAuthenticate(client);
 }

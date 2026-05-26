@@ -24,4 +24,5 @@ void    Server::handlePass(Client& client, Command& cmd)
         return ;
     }
     client.passOk = true;
+    tryAuthenticate(client);
 }
