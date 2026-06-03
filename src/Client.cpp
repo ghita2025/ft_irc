@@ -77,4 +77,9 @@ void Client::queueMessageToSend(const std::string &msg)
     sendBuffer += msg + "\r\n";
 }
 
+bool Client::isRegistered() const
+{
+    return (passOk && nickSet && userSet);
+}
+
 Client::~Client() {}

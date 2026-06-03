@@ -3,13 +3,13 @@
 #include "../../include/Client.hpp"
 #include "../../include/Channel.hpp"
 
-void    Server::handleJoin(Client& client, Command& cmd)
+void Server::handleJoin(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 1)
-        return ;
+        return;
     std::string channelName = cmd.args[0];
     if (channelName[0] != '#')
-        return ;
+        return;
     if (channels.find(channelName) == channels.end())
     {
         Channel newChannel(channelName);
@@ -20,7 +20,7 @@ void    Server::handleJoin(Client& client, Command& cmd)
     {
         std::string err = "Invite only\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
-        return ;
+        return;
     }
     if (channel.hasPassword())
     {
@@ -28,19 +28,19 @@ void    Server::handleJoin(Client& client, Command& cmd)
         {
             std::string err = "Wrong password\r\n";
             send(client.getFd(), err.c_str(), err.size(), 0);
-            return ;
+            return;
         }
     }
     if (channel.isFull())
     {
         std::string err = "Channel is full\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
-        return ;
+        return;
     }
     if (channel.isInviteOnly())
         std::cout << "Channel is invite only" << std::endl;
     if (channel.hasMember(client.getFd()))
-        return ;
+        return;
     channel.addMember(client.getFd());
     channel.removeInvite(client.getFd());
     if (channel.memberCount() == 1)
@@ -54,7 +54,6 @@ void    Server::handleJoin(Client& client, Command& cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
-    //debug
+    // debug
     std::cout << "JOIN OK: " << channelName << std::endl;
 }
-

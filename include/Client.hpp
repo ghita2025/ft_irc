@@ -42,6 +42,7 @@ class Client
         void appendToBuffer(const std::string &data);
         void extractCommands(std::vector<std::string> &commands);
         void queueMessageToSend(const std::string &msg);
+        bool isRegistered() const;
 };
 
 #endif

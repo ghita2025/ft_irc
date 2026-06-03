@@ -2,11 +2,11 @@
 #include "ft_irc.h"
 #include "../include/Command.hpp"
 
-
-void Server::executeCommand(Client& client, Command& cmd)
+void Server::executeCommand(Client &client, Command &cmd)
 {
-    // std::cout << "name: " << cmd.name << std::endl;
-    if (!client.passOk && cmd.name != "PASS" && cmd.name != "NICK" && cmd.name != "USER")
+    std::cout << "name: " << cmd.name << std::endl;
+    std::cout << "authenticated: " << client.authenticated << std::endl;
+    if (!client.authenticated && cmd.name != "PASS" && cmd.name != "NICK" && cmd.name != "USER")
     {
         std::string err = "451 :You have not registered\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);

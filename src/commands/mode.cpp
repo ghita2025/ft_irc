@@ -3,19 +3,19 @@
 #include "../../include/Client.hpp"
 #include "../../include/Channel.hpp"
 
-void Server::handleMode(Client& client, Command& cmd)
+void Server::handleMode(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 2)
-        return ;
+        return;
     std::string channelName = cmd.args[0];
     if (channels.find(channelName) == channels.end())
-        return ;
+        return;
     Channel &channel = channels[channelName];
     if (!channel.isOperator(client.getFd()))
     {
         std::string err = ":" + client.getNickname() + " 482 " + channelName + " :You're not channel operator\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
-        return ;
+        return;
     }
     std::string modes = cmd.args[1];
     bool add = true;
@@ -28,13 +28,13 @@ void Server::handleMode(Client& client, Command& cmd)
         {
             add = true;
             i++;
-            continue ;
+            continue;
         }
         if (c == '-')
         {
             add = false;
             i++;
-            continue ;
+            continue;
         }
         if (c == 'i')
             channel.setInviteOnly(add);
@@ -43,22 +43,22 @@ void Server::handleMode(Client& client, Command& cmd)
             if (add)
                 if (paramindex < cmd.args.size())
                     channel.setPassword(cmd.args[paramindex++]);
-            else
-                channel.removePassword();
+                else
+                    channel.removePassword();
         }
         else if (c == 'l')
         {
             if (add)
                 if (paramindex < cmd.args.size())
                     channel.setLimit(std::atoi(cmd.args[paramindex++].c_str()));
-            else
-                channel.removeLimit();
+                else
+                    channel.removeLimit();
         }
         else if (c == 'o')
         {
             if (paramindex < cmd.args.size())
             {
-                Client* target = getClientByNick(cmd.args[paramindex++]);
+                Client *target = getClientByNick(cmd.args[paramindex++]);
                 if (target)
                 {
                     int fd = target->getFd();
@@ -79,6 +79,6 @@ void Server::handleMode(Client& client, Command& cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
-    //debug
+    // debug
     std::cout << "MODE applied: " << modes << " on " << channelName << std::endl;
 }
