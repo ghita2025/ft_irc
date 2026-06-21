@@ -12,7 +12,7 @@ void Server::handleTopic(Client& client, Command& cmd)
     if (it == channels.end())
         return ;
     Channel &channel = it->second;
-    if (channel.hasMember(client.getFd()))
+    if (!channel.hasMember(client.getFd()))
         return ;
     if (cmd.args.size() == 1)
     {

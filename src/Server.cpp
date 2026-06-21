@@ -110,7 +110,7 @@ void Server::handleNewClient()
         return;
     }
 
-    // fcntl(clientFd, F_SETFL, O_NONBLOCK);
+    fcntl(clientFd, F_SETFL, O_NONBLOCK);
     pollfd pfd;
     pfd.fd = clientFd;
     pfd.events = POLLIN;
