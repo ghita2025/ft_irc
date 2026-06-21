@@ -9,7 +9,11 @@ void Server::handleJoin(Client &client, Command &cmd)
         return;
     std::string channelName = cmd.args[0];
     if (channelName[0] != '#')
-        return;
+    {
+        std::string err = "Invalid channel name\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
+        return ;
+    }
     if (channels.find(channelName) == channels.end())
     {
         Channel newChannel(channelName);
