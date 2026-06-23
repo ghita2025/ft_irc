@@ -22,10 +22,6 @@ void Server::handleMode(Client &client, Command &cmd)
     std::string modes;
     std::vector<std::string> modeParams;
 
-    std::cout << "arg 0: " << cmd.args[0] << std::endl; // debug
-    std::cout << "arg 1: " << cmd.args[1] << std::endl; // debug
-    std::cout << "arg 2: " << cmd.args[2] << std::endl; // debug
-    std::cout << "arg 3: " << cmd.args[3] << std::endl; // debug
     if (cmd.args.size() >= 2 && isChannelToken(cmd.args[0]) && isModeToken(cmd.args[1]))
     {
         channelName = cmd.args[0];
@@ -52,15 +48,6 @@ void Server::handleMode(Client &client, Command &cmd)
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
-    // debug
-    std::vector<std::string>::iterator itt = modeParams.begin();
-    std::cout << "Mode parameters: ";
-    while (itt != modeParams.end())
-    {
-        std::cout << *itt << "|" << std::endl;
-        itt++;
-    }
-    // debug
     if (channels.find(channelName) == channels.end())
     {
         std::string err = "MODE:" + client.getNickname() + " 403 " + channelName + " :No such channel\r\n";
@@ -80,14 +67,12 @@ void Server::handleMode(Client &client, Command &cmd)
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
-    std::cout << "Applying modes: " << modes << std::endl; // debug
     bool add = true;
     size_t paramindex = 0;
     size_t i = 0;
     while (i < modes.size())
     {
         char c = modes[i];
-        std::cout << "Processing mode char: " << c << std::endl; // debug
         if (c == '+')
         {
             add = true;
@@ -147,6 +132,4 @@ void Server::handleMode(Client &client, Command &cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
-    // debug
-    std::cout << "MODE applied: " << modes << " on " << channelName << std::endl;
 }

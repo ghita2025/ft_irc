@@ -55,8 +55,6 @@ void Server::handleKick(Client &client, Command &cmd)
         }
         cl.removeMember(target->getFd());
         cl.removeOperator(target->getFd());
-        // debug
-        std::cout << "dakchi howa hadak kick" << std::endl;
     }
     else
     {
