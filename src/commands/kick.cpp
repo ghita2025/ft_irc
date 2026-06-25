@@ -20,7 +20,11 @@ Client *Server::getClientByNick(const std::string &nick)
 void Server::handleKick(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 2)
+    {
+        std::string err = ":server 461 KICK :Not enough parameters\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
         return;
+    }
     std::string channelName = cmd.args[0];
     std::string targetNick = cmd.args[1];
     if (this->channels.find(channelName) != this->channels.end())
@@ -35,13 +39,13 @@ void Server::handleKick(Client &client, Command &cmd)
         Client *target = getClientByNick(targetNick);
         if (!target)
         {
-            std::string err = "401 No such nick\r\n";
+            std::string err = ":server 401 " + targetNick + " :No such nick\r\n";
             send(client.getFd(), err.c_str(), err.size(), 0);
             return;
         }
         if (!cl.hasMember(target->getFd()))
         {
-            std::string err = "441 They aren't on that channel\r\n";
+            std::string err = ":server 441 " + targetNick + " " + channelName + " :They aren't on that channel\r\n";
             send(client.getFd(), err.c_str(), err.size(), 0);
             return;
         }
@@ -58,7 +62,7 @@ void Server::handleKick(Client &client, Command &cmd)
     }
     else
     {
-        std::string err = "403 No such channel\r\n";
+        std::string err = ":server 403 " + channelName + " :No such channel\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }

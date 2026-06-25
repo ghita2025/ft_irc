@@ -6,11 +6,15 @@
 void Server::handleJoin(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 1)
+    {
+        std::string err = ":" + client.getNickname() + " 461 JOIN :Not enough parameters\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
         return;
+    }
     std::string channelName = cmd.args[0];
     if (channelName[0] != '#')
     {
-        std::string err = "Invalid channel name\r\n";
+        std::string err = ":" + client.getNickname() + " 476 " + channelName + " :Bad Channel Mask\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
     }
@@ -22,7 +26,7 @@ void Server::handleJoin(Client &client, Command &cmd)
     Channel &channel = channels[channelName];
     if (channel.isInviteOnly() && !channel.isInvited(client.getFd()))
     {
-        std::string err = "Invite only\r\n";
+        std::string err = ":" + client.getNickname() + " 473 " + channelName + " :Invite only channel\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
@@ -30,14 +34,14 @@ void Server::handleJoin(Client &client, Command &cmd)
     {
         if (cmd.args.size() < 2 || cmd.args[1] != channel.getPassword())
         {
-            std::string err = "Wrong password\r\n";
+            std::string err = ":" + client.getNickname() + " 475 " + channelName + " :Cannot join channel (+k)\r\n";
             send(client.getFd(), err.c_str(), err.size(), 0);
             return;
         }
     }
     if (channel.isFull())
     {
-        std::string err = "Channel is full\r\n";
+        std::string err = ":" + client.getNickname() + " 471 " + channelName + " :Cannot join channel (+l)\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }

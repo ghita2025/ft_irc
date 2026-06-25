@@ -6,7 +6,11 @@
 void    Server::handlePrivmsg(Client& client, Command& cmd)
 {
     if (cmd.args.size() < 2)
+    {
+        std::string err = ":server 461 PRIVMSG :Not enough parameters\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
+    }
         std::string target = cmd.args[0];
         std::string message = cmd.args[1];
         std::cout << target << message << std::endl;
@@ -18,7 +22,11 @@ void    Server::handlePrivmsg(Client& client, Command& cmd)
         
         it = channels.find(target);
         if (it == channels.end())
+        {
+            std::string err = ":server 403 " + target + " :No such channel\r\n";
+            send(client.getFd(), err.c_str(), err.size(), 0);
             return ;
+        }
         Channel &channel = it->second;
         std::set<int> members = channel.getMembers();
         std::set<int>::iterator m = members.begin();
@@ -35,7 +43,11 @@ void    Server::handlePrivmsg(Client& client, Command& cmd)
         
         targetClient = getClientByNick(target);
         if (!targetClient)
+        {
+            std::string err = ":server 401 " + target + " :No such nick\r\n";
+            send(client.getFd(), err.c_str(), err.size(), 0);
             return ;
+        }
         send(targetClient->getFd(), fullMsg.c_str(), fullMsg.size(), 0);
     }
 }

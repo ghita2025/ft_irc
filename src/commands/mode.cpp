@@ -16,7 +16,11 @@ static bool isChannelToken(const std::string &token)
 void Server::handleMode(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 2) 
+    {
+        std::string err = ":server 461 MODE :Not enough parameters\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
         return;
+    }
 
     std::string channelName;
     std::string modes;
@@ -44,26 +48,26 @@ void Server::handleMode(Client &client, Command &cmd)
     }
     else
     {
-        std::string err = "MODE: " + client.getNickname() + " :Invalid MODE syntax\r\n";
+        std::string err = ":server 461 MODE :Invalid MODE syntax\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
     if (channels.find(channelName) == channels.end())
     {
-        std::string err = "MODE:" + client.getNickname() + " 403 " + channelName + " :No such channel\r\n";
+        std::string err = ":server 403 " + channelName + " :No such channel\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
     Channel &channel = channels[channelName];
     if (!channel.isOperator(client.getFd()))
     {
-        std::string err = "MODE:" + client.getNickname() + " 482 " + channelName + " :You're not channel operator\r\n";
+        std::string err = ":server 482 " + channelName + " :You're not channel operator\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
     if (!isModeToken(modes) || modes.empty())
     {
-        std::string err = "MODE: " + channelName + " :Invalid mode\r\n";
+        std::string err = ":server 472 " + modes + " :is unknown mode char to me\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }

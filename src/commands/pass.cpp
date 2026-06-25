@@ -7,19 +7,19 @@ void    Server::handlePass(Client& client, Command& cmd)
 {
     if (cmd.args.size() < 1)
     {
-        std::string err = "PASS :Not enough parameters\r\n";
+        std::string err = ":server 461 PASS :Not enough parameters\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
     }
     if (client.passOk)
     {
-        std::string err = "PASS :You may not reregister\r\n";
+        std::string err = ":server 462 PASS :You may not reregister\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
     }
     if (cmd.args[0] != this->password)
     {
-        std::string err = "PASS :Password incorrect\r\n";
+        std::string err = ":server 464 PASS :Password incorrect\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
     }

@@ -19,19 +19,20 @@ void Server::handleNick(Client &client, Command &cmd)
 {
     if (cmd.args.size() < 1)
     {
-        std::string err = "NICK :Not enough parameters\r\n";
+        std::string err = ":server 431 :No nickname given\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
     if (!client.passOk)
     {
-        send(client.getFd(), "NICK :You have not registered (send PASS first)\r\n", 53, 0);
+        std::string err = ":server 451 :You have not registered\r\n";
+        send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
     }
     std::string nick = cmd.args[0];
     if (nicknameExists(nick))
     {
-        std::string err = "NICK :Nickname already in use\r\n";
+        std::string err = ":server 433 " + nick + " :Nickname already in use\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
