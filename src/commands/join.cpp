@@ -62,4 +62,21 @@ void Server::handleJoin(Client &client, Command &cmd)
         send(*it, msg.c_str(), msg.size(), 0);
         it++;
     }
+    std::string listnames = "";
+    std::set<int>::iterator it2 = members.begin();
+    while (it2 != members.end())
+    {
+        Client mClient = clients[*it2];
+        
+        // std::cout << "names client: " + mClient.getNickname() << std::endl;
+        if (channel.isOperator(mClient.getFd()))
+            listnames += "@" + mClient.getNickname() + " ";
+        else
+            listnames += mClient.getNickname() + " ";
+        it2++;
+    }
+    std::string namesMsg = ":" + client.getNickname() + " 353 " + client.getNickname() + " = " + channelName + " :" + listnames + "\r\n";
+    send(client.getFd(), namesMsg.c_str(), namesMsg.size(), 0);
+    std::string endNamesMsg = ":" + client.getNickname() + " 366 "+ client.getNickname() + " " + channelName + " :End of /NAMES list\r\n";
+    send(client.getFd(), endNamesMsg.c_str(), endNamesMsg.size(), 0);
 }
