@@ -5,18 +5,26 @@
 
 void Server::handleJoin(Client &client, Command &cmd)
 {
+    std::string serverName = "ircserv";
     if (cmd.args.size() < 1)
     {
-        std::string err = ":" + client.getNickname() + " 461 JOIN :Not enough parameters\r\n";
+        std::string err = ":" + serverName + " 461 " + client.getNickname() + " JOIN :Not enough parameters\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
     std::string channelName = cmd.args[0];
-    if (channelName[0] != '#')
+    std::cout << "name channel: " << channelName[0] << std::endl;
+    if (channelName.empty() || channelName[0] != '#')
     {
-        std::string err = ":" + client.getNickname() + " 476 " + channelName + " :Bad Channel Mask\r\n";
-        send(client.getFd(), err.c_str(), err.size(), 0);
-        return ;
+        std::string err = ":" + serverName +
+        " 476 " + client.getNickname() +
+        " " + channelName +
+        " :Bad Channel Mask\r\n";
+        std::cout << err << std::endl;
+        ssize_t n = send(client.getFd(), err.c_str(), err.size(), 0);
+        std::cout << "send returned = " << n << std::endl;
+        perror("send");
+        return;
     }
     if (channels.find(channelName) == channels.end())
     {
@@ -26,7 +34,7 @@ void Server::handleJoin(Client &client, Command &cmd)
     Channel &channel = channels[channelName];
     if (channel.isInviteOnly() && !channel.isInvited(client.getFd()))
     {
-        std::string err = ":" + client.getNickname() + " 473 " + channelName + " :Invite only channel\r\n";
+        std::string err = ":" + serverName + " 473 " + client.getNickname() + " " + channelName + " :Invite only channel\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
@@ -34,14 +42,14 @@ void Server::handleJoin(Client &client, Command &cmd)
     {
         if (cmd.args.size() < 2 || cmd.args[1] != channel.getPassword())
         {
-            std::string err = ":" + client.getNickname() + " 475 " + channelName + " :Cannot join channel (+k)\r\n";
+            std::string err = ":" + serverName + " 475 " + client.getNickname() + " " + channelName + " :Cannot join channel (+k)\r\n";
             send(client.getFd(), err.c_str(), err.size(), 0);
             return;
         }
     }
     if (channel.isFull())
     {
-        std::string err = ":" + client.getNickname() + " 471 " + channelName + " :Cannot join channel (+l)\r\n";
+        std::string err = ":" + serverName + " 471 " + client.getNickname() + " " + channelName + " :Cannot join channel (+l)\r\n";
         send(client.getFd(), err.c_str(), err.size(), 0);
         return;
     }
@@ -67,7 +75,7 @@ void Server::handleJoin(Client &client, Command &cmd)
     while (it2 != members.end())
     {
         Client mClient = clients[*it2];
-        
+
         // std::cout << "names client: " + mClient.getNickname() << std::endl;
         if (channel.isOperator(mClient.getFd()))
             listnames += "@" + mClient.getNickname() + " ";
@@ -75,8 +83,8 @@ void Server::handleJoin(Client &client, Command &cmd)
             listnames += mClient.getNickname() + " ";
         it2++;
     }
-    std::string namesMsg = ":" + client.getNickname() + " 353 " + client.getNickname() + " = " + channelName + " :" + listnames + "\r\n";
+    std::string namesMsg = ":" + serverName + " 353 " + client.getNickname() + " = " + channelName + " :" + listnames + "\r\n";
     send(client.getFd(), namesMsg.c_str(), namesMsg.size(), 0);
-    std::string endNamesMsg = ":" + client.getNickname() + " 366 "+ client.getNickname() + " " + channelName + " :End of /NAMES list\r\n";
+    std::string endNamesMsg = ":" + serverName + " 366 " + client.getNickname() + " " + channelName + " :End of /NAMES list\r\n";
     send(client.getFd(), endNamesMsg.c_str(), endNamesMsg.size(), 0);
 }
