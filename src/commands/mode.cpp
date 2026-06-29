@@ -126,6 +126,7 @@ void Server::handleMode(Client &client, Command &cmd)
                 }
             }
         }
+        // t, 
         i++;
     }
     std::string msg = ":" + client.getNickname() + " MODE " + channelName + " " + modes + "\r\n";

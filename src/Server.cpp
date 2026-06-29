@@ -205,8 +205,8 @@ void Server::processCommand(Client &client, const std::string &rawString)
         handleUser(client, cmd);
     else if (cmd.name == "JOIN")
         handleJoin(client, cmd);
-    else if (cmd.name == "PART")
-        handlePart(client, cmd);
+    // else if (cmd.name == "PART")
+    //     handlePart(client, cmd);
     else if (cmd.name == "KICK")
         handleKick(client, cmd);
     else if (cmd.name == "INVITE")

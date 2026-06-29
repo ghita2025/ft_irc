@@ -12,16 +12,16 @@ void Server::executeCommand(Client &client, Command &cmd)
         send(client.getFd(), err.c_str(), err.size(), 0);
         return ;
     }
-    if (cmd.name == "PASS")
+    if (cmd.name == "PASS") // >
         handlePass(client, cmd);
     else if (cmd.name == "NICK")
         handleNick(client, cmd);
     else if (cmd.name == "USER")
         handleUser(client, cmd);
-    else if (cmd.name == "JOIN")
+    else if (cmd.name == "JOIN") // channel  and admin
         handleJoin(client, cmd);
-    else if (cmd.name == "PART")
-        handlePart(client, cmd);
+    // else if (cmd.name == "PART")
+    //     handlePart(client, cmd);
     else if (cmd.name == "KICK")
         handleKick(client, cmd);
     else if (cmd.name == "INVITE")
@@ -34,4 +34,6 @@ void Server::executeCommand(Client &client, Command &cmd)
         handlePrivmsg(client, cmd);
     else if (cmd.name == "QUIT")
         handleQuit(client, cmd);
+    else
+        std::cout << "err" << std::endl;
 }
